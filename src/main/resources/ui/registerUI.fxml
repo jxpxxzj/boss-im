@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="505.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.registerUIController">
+    <children>
+        <Button layoutX="119.0" layoutY="443.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="247.0" text="注册并登录" />
+        <PasswordField layoutX="119.0" layoutY="242.0" prefHeight="41.0" prefWidth="247.0" promptText="区分大小写" />
+        <PasswordField layoutX="119.0" layoutY="310.0" prefHeight="41.0" prefWidth="247.0" promptText="再次输入您 的密码" />
+        <TextField layoutX="119.0" layoutY="175.0" prefHeight="41.0" prefWidth="247.0" promptText="聊天显示的昵称" />
+        <TextField layoutX="119.0" layoutY="377.0" prefHeight="41.0" prefWidth="247.0" promptText="电子邮箱" />
+        <Text layoutX="39.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="昵称" />
+        <Text layoutX="39.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="密码" />
+        <Text layoutX="39.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="确认密码" />
+        <Text layoutX="41.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+        <Text layoutX="384.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="密码一致">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="108.0" layoutY="-2.0" stroke="#ffffff00" strokeType="INSIDE" width="489.0">
+            <fill>
+                <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="0.8689320388349514" startX="0.9854368932038835">
+                    <stops>
+                        <Stop color="RED" />
+                        <Stop color="#ff6a00" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Text fill="#6f0a0a" layoutX="26.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="欢迎使用 T T  -">
+            <font>
+                <Font size="32.0" />
+            </font>
+        </Text>
+        <Text fill="#941818" layoutX="258.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户注册">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Text layoutX="39.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UID(系统分配)">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+        <Text layoutX="181.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100001" wrappingWidth="184.30029296875">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

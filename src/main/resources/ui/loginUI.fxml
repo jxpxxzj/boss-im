@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="443.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.loginUIController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="230.0" layoutX="-2.0" layoutY="213.0" stroke="#ffffff00" strokeType="INSIDE" width="572.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="213.0" layoutX="-3.0" stroke="#ffffff00" strokeType="INSIDE" width="572.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-1.0">
+            <fill>
+                <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.8737864077669902" startY="0.0825242718446602">
+                    <stops>
+                        <Stop color="RED" />
+                        <Stop color="#ff6600d9" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <TextField fx:id="uidField" layoutX="165.0" layoutY="240.0" prefHeight="40.0" prefWidth="239.0" promptText="UID" />
+        <PasswordField fx:id="passwordField" layoutX="165.0" layoutY="280.0" prefHeight="40.0" prefWidth="239.0" promptText="密码" />
+        <Button fx:id="loginButton" layoutX="165.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#onLoginClick" prefHeight="40.0" prefWidth="239.0" text="登录" />
+        <CheckBox layoutX="165.0" layoutY="336.0" mnemonicParsing="false" text="记住密码" />
+        <CheckBox layoutX="305.0" layoutY="336.0" mnemonicParsing="false" text="自动登录" />
+        <Text fill="#9a1414" layoutX="192.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T  T">
+            <font>
+                <Font name="Bauhaus 93" size="120.0" />
+            </font>
+        </Text>
+        <Text fill="#615959" layoutX="476.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="注册账号" wrappingWidth="66.0" />
+    </children>
+</AnchorPane>
