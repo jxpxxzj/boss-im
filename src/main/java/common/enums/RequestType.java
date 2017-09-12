@@ -22,6 +22,9 @@ public enum RequestType {
     // create group
     Group_Create,
 
+    // get user group list
+    Group_List,
+
     // request to join group
     Group_RequestJoin,
 

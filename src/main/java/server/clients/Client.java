@@ -1,6 +1,7 @@
 package server.clients;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.sun.deploy.panel.CacheSettingsDialog;
 import common.database.FriendsRelation;
 import common.database.GroupMember;
 import common.database.Message;
@@ -52,9 +53,9 @@ public class Client {
             return;
         }
         InputStream stream = socket.getInputStream();
-        InputStreamReader reader = new InputStreamReader(stream);
+        InputStreamReader reader = new InputStreamReader(stream, "UTF-8");
         BufferedReader reader1 = new BufferedReader(reader);
-        String totals = "";
+        String totals;
         Request data = null;
         char[] buffer = new char[4096];
         int readResult;
@@ -104,7 +105,7 @@ public class Client {
         String json = JsonSerializer.Serialize(data);
         logger.info(json);
         OutputStream outputStream = socket.getOutputStream();
-        PrintWriter printWriter = new PrintWriter(outputStream);
+        BufferedWriter printWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
         if(!json.trim().isEmpty())
             printWriter.write(json + "\n");
         printWriter.flush();
@@ -153,7 +154,6 @@ public class Client {
                     Authenticate(request.payload.get("uid").toString(), request.payload.get("password").toString());
                     break;
             }
-
         }
         if (IsAuth) {
             switch(request.type) {
@@ -197,6 +197,11 @@ public class Client {
                     Map<String, Object> map1 = new HashMap<>();
                     map1.put("gid", gid);
                     SendRequest(RequestType.Group_AcceptJoin, map1);
+                    break;
+                case Group_List:
+                    Map<String, Object> groupListMap = new HashMap<>();
+                    groupListMap.put("groups", GroupService.GetGroupUser(user.id));
+                    SendRequest(RequestType.Group_List, groupListMap);
                     break;
                 case Group_RequestJoin:
                     long gid2 = Long.parseLong(request.payload.get("id").toString());

@@ -16,6 +16,7 @@ import server.clients.Client;
 import server.clients.ClientManager;
 
 import java.security.acl.Group;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -129,6 +130,21 @@ public class GroupService {
              members) {
             MessageService.SendMessage(sender, gid, EndpointType.Group, m.userId, EndpointType.User, useEscape, content);
         }
+    }
+
+    public static List<Groups> GetUserGroup(long uid) {
+        Session session = HibernateUtil.CreateSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from GroupMember where userId=:uid");
+        query.setParameter("uid", uid);
+        List<GroupMember> members = query.getResultList();
+        List<Groups> groups = new LinkedList<>();
+
+        for (GroupMember member:
+             members) {
+            groups.add(GetGroup(member.groupId));
+        }
+        return groups;
     }
 
     public static void SendRequestToGroup(long gid, RequestType type, Map<String, Object> payload) {

@@ -109,7 +109,7 @@ public class BanchoClient {
 
     private void receive() throws IOException {
         InputStream stream = socket.getInputStream();
-        InputStreamReader reader = new InputStreamReader(stream);
+        InputStreamReader reader = new InputStreamReader(stream, "UTF-8");
         BufferedReader reader1 = new BufferedReader(reader);
         String info = null;
         String totals = "";
@@ -162,7 +162,7 @@ public class BanchoClient {
         String json = JsonSerializer.Serialize(data);
 
         OutputStream outputStream = socket.getOutputStream();
-        PrintWriter printWriter = new PrintWriter(outputStream);
+        BufferedWriter printWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
         if (!json.trim().isEmpty())
             printWriter.write(json + "\n");
         printWriter.flush();
